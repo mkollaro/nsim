@@ -1,0 +1,12 @@
+Makefile*
+*.pro.user
+build/
+bin/
+
+# generated documentation
+doc/html/
+doc/latex/
+doc/mathjax/
+doc/graphs/
+
+examples/data/

@@ -1,0 +1,29 @@
+<nsim>
+    <settings>
+        <units>
+            <mass> kg </mass>
+            <length> km </length>
+            <time> sec </time>
+        </units>
+    </settings>
+    <universe>
+        <body name="Sun">
+            <radius> 6.960e5 </radius>
+            <mass> 1.9884158281565063e+30</mass>
+            <position> 0, 0, 0</position>
+            <velocity> 0, 0, 0</velocity>
+        </body>
+        <body name="Earth">
+            <radius> 6.371e3 </radius>
+            <mass> 5.97218648413681e+24</mass>
+            <position>1.280793689227670E+08, -8.062865158131152E+07, -3.492122863247991E+03</position>
+            <velocity>1.537798642330998E+01,  2.510789210508383E+01,  2.624007247700177E-04</velocity>
+        </body>
+        <body name="Moon">
+            <radius> 1737.53</radius>
+            <mass> 7.3458097961049285e+22</mass>
+            <position> 1.277921528830985E+08, -8.086570409446754E+07,  9.563003630191088E+03</position>
+            <velocity>  1.606549867043341E+01,  2.431646714083859E+01,  8.623286963688770E-02</velocity>
+        </body>
+    </universe>
+</nsim>

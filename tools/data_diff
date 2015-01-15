@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+# Copyright 2014 Martina Kollarova
+#
+# This file is part of NSim.
+#
+# NSim is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 2 of the License, or (at your option) any later
+# version.
+#
+# NSim is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# NSim. If not, see http://www.gnu.org/licenses/.
+
+""" Decide if two CSV files with floating point data are approx. the same.
+
+The purpose is to compare data that were the result of different numeric
+algorithms, where some of them are more precise than others.
+
+The files are considered identical if the first two lines are the same (which
+should be the header and then the initial values of the data) and the
+difference between floating point numbers is smaller than a given number
+Epsilon. Spacing doesn't matter, but the second line has to use the same
+floating point number representation.
+"""
+
+import csv
+import sys
+import argparse
+import traceback
+import itertools
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("file1")
+    parser.add_argument("file2")
+    parser.add_argument("-e", "--epsilon", type=float, default=0.1,
+                        help="If the difference between floating point numbers"
+                        " is smaller than this, they are considered identical")
+    parser.add_argument("-v", "--verbose", action="store_true")
+    return parser.parse_args()
+
+
+def main():
+    args = parse_args()
+    with open(args.file1) as file1, open(args.file2) as file2:
+        reader1 = csv.reader(file1, delimiter=' ')
+        reader2 = csv.reader(file2, delimiter=' ')
+        try:
+            compare(reader1, reader2, args.epsilon)
+        except DiffException as e:
+            sys.stderr.write("%s: %s\n"
+                             % (type(e).__name__, e))
+            if args.verbose:
+                traceback.print_exc()
+            sys.exit(1)
+
+
+def compare(reader1, reader2, epsilon):
+    """ Return if they are the same (diff not bigger than epsilon),
+    throw exception otherwise.
+    """
+    if next(reader1) != next(reader2):
+        raise DiffException("Header of CSV files not identical")
+    if next(reader1) != next(reader2):
+        raise DiffException("First data line of CSV files not identical")
+
+    for rowA, rowB in itertools.zip_longest(reader1, reader2):
+        if rowA is None or rowB is None:
+            raise DiffException("The files have a different number of lines")
+        if len(rowA) != len(rowB):
+            raise DiffException("[line %d] Rows have different length"
+                                % reader1.line_num)
+        for col, (itemA, itemB) in enumerate(zip(rowA, rowB)):
+            diff = abs(float(itemA) - float(itemB))
+            if diff > epsilon:
+                raise DiffException("[line %d: col %d] Difference between"
+                                    " numbers %s and %s is bigger (%f) than"
+                                    " epsilon (%f)"
+                                    % (reader1.line_num, col,
+                                       itemA, itemB, diff, epsilon))
+
+
+class DiffException(Exception):
+    pass
+
+
+main()

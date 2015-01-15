@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/logo2.png</file>
+    <file>icons/apply.png</file>
+    <file>icons/play.png</file>
+    <file>icons/pause.png</file>
+    <file>icons/backward.png</file>
+    <file>icons/forward.png</file>
+  </qresource>
+  <qresource>
+    <file>shaders/vshader.glsl</file>
+    <file>shaders/fshader.glsl</file>
+  </qresource>
+</RCC>

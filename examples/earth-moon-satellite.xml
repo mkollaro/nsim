@@ -1,0 +1,25 @@
+<nsim>
+    <universe>
+        <body name="Earth">
+            <radius> 1.27e7 </radius>
+            <visible-size-multiplier> 1 </visible-size-multiplier> 
+            <mass> 5.983e24 </mass>
+            <position> 0, 0, 0 </position>
+            <velocity> 0, 0, 0 </velocity>
+        </body>
+        <body name="Moon">
+            <radius> 3.476e6 </radius>
+            <visible-size-multiplier> 2 </visible-size-multiplier> 
+            <mass> 7.374e22 </mass>
+            <position> 384.405e6, 0, 0 </position>
+            <velocity> 0, 1022, 0 </velocity>
+        </body>
+        <body name="Satellite">
+            <radius> 10 </radius>
+            <visible-size-multiplier> 200000 </visible-size-multiplier> 
+            <mass> 1000</mass>
+            <position> 36.0e6, 0, 0 </position>
+            <velocity> 0, 4200, 1600 </velocity>
+        </body>
+    </universe>
+</nsim>

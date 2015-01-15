@@ -1,0 +1,79 @@
+<nsim>
+    <settings>
+        <units>
+            <mass> kg </mass>
+            <length> km </length>
+            <time> sec </time>
+        </units>
+        <visible-size-multiplier>500</visible-size-multiplier>
+    </settings>
+    <universe>
+        <body name="Sun">
+            <radius> 6.960e5 </radius>
+            <mass> 1.9884158281565063e+30</mass>
+            <visible-size-multiplier>-490</visible-size-multiplier>
+            <position> 0, 0, 0</position>
+            <velocity> 0, 0, 0</velocity>
+        </body>
+        <body name="Mercury">
+            <radius> 2440 </radius>
+            <mass> 3.301042280623724e+23</mass>
+            <position> 2.109160081673836E+07, -6.351960893079072E+07, -7.124086225417066E+06</position>
+            <velocity> 3.647068225450784E+01,  1.783295442730245E+01, -1.893342674717684E+00</velocity>
+        </body>
+        <body name="Venus">
+            <radius> 6051.8 </radius>
+            <mass> 4.867323001385492e+24 </mass>
+            <position> 6.396991142036323E+07,  8.704054279664834E+07, -2.509334294585843E+06</position>
+            <velocity> -2.833022731553081E+01,  2.058667717953437E+01,  1.915886692341797E+00</velocity>
+        </body>
+        <body name="Earth">
+            <radius> 6.371e3 </radius>
+            <mass> 5.97218648413681e+24</mass>
+            <position>1.280793689227670E+08, -8.062865158131152E+07, -3.492122863247991E+03</position>
+            <velocity>1.537798642330998E+01,  2.510789210508383E+01,  2.624007247700177E-04</velocity>
+        </body>
+        <body name="Mars">
+            <radius> 3389.9 </radius>
+            <mass> 6.416914871532045e+23</mass>
+            <position>1.561317865457824E+08,  1.528100763860663E+08, -6.455125569534227E+05</position>
+            <velocity>-1.601953420274338E+01,  1.937665615323258E+01,  8.002882450360476E-01</velocity>
+        </body>
+        <body name="Jupiter">
+            <radius> 71492 </radius>
+            <mass> 1.898520845421447e+27</mass>
+            <position>1.231950579653248E+08,  7.517382682757410E+08, -5.851123592742682E+06</position>
+            <velocity>-1.306141805852148E+01,  2.724791852959594E+00,  2.813485930701363E-01</velocity>
+        </body>
+        <body name="Saturn">
+            <radius> 60268 </radius>
+            <mass> 5.684436330035593e+26</mass>
+            <position>-1.066866848728780E+09,  8.645087146375484E+08,  2.728201745645326E+07</position>
+            <velocity>-6.613905418681151E+00, -7.531766696921784E+00,  3.948939542756462E-01</velocity>
+        </body>
+        <body name="Uranus">
+            <radius> 25559 </radius>
+            <mass> 8.6603476833422e+25</mass>
+            <position> -2.083147371694930E+09, -1.841789091728277E+09,  2.019235647612798E+07</position>
+            <velocity> 4.447518572594334E+00, -5.418707149424586E+00, -7.758310221759301E-02 </velocity>
+        </body>
+        <body name="Neptune">
+            <radius> 24766</radius>
+            <mass> 1.0295204533641866e+26</mass>
+            <position>-1.131877906644162E+09, -4.385911525933795E+09,  1.164016666981483E+08</position>
+            <velocity>5.213796996514275E+00, -1.327632591610891E+00, -9.299224628449071E-02</velocity>
+        </body>
+        <body name="Pluto">
+            <radius> 1151</radius>
+            <mass> 1.529550634235132e+22</mass>
+            <position>-4.225232527803362E+09, -1.059600998758574E+09,  1.335507155969177E+09</position>
+            <velocity>2.060330866025046E+00, -5.620736879588716E+00, -1.599244274587841E-02</velocity>
+        </body>
+        <body name="Moon">
+            <radius> 1737.53</radius>
+            <mass> 7.3458097961049285e+22</mass>
+            <position> 1.277921528830985E+08, -8.086570409446754E+07,  9.563003630191088E+03</position>
+            <velocity>  1.606549867043341E+01,  2.431646714083859E+01,  8.623286963688770E-02</velocity>
+        </body>
+    </universe>
+</nsim>
