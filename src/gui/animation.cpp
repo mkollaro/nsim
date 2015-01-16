@@ -50,14 +50,12 @@ Animation::loadUniverse(physics::UniverseModel u, parser::ProjectSettings p)
 {
     universe = u;
     settings = p;
-    history_index = 0;
-    view_scale = 1.0/computeUniverseRadius();
     orbits.clear();
     for (unsigned i = 0; i < universe.size(); i++) {
         orbits.push_back(Orbit(simulation_history, i));
         orbits[i].initialize();
     }
-    update();
+    reset();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -65,7 +63,9 @@ void
 Animation::reset()
 {
     history_index = 0;
-    rotation = QQuaternion();
+    view_translation = QVector3D();
+    view_rotation = QQuaternion();
+    view_scale = 1.0/computeUniverseRadius();
     speed = 1;
     update();
 }
@@ -75,6 +75,7 @@ Animation::startOrStop(bool start)
 {
     if(!hasData()) return;
 
+    this->setFocus();
     if (start) {
         emit stateChanged(PLAYING);
         timer.start(TIMER_TIMEOUT, this);
@@ -121,7 +122,29 @@ void Animation::mouseMoveEvent(QMouseEvent *e)
     // rotation axis is perpendicular to the mouse position difference vector
     QVector3D rotationAxis = QVector3D(diff.y(), diff.x(), 0.0).normalized();
     // calculate new rotation axis as weighted sum
-    rotation *= QQuaternion::fromAxisAndAngle(rotationAxis, diff.length()/100);
+    view_rotation *= QQuaternion::fromAxisAndAngle(rotationAxis,
+                                                   diff.length()/100);
+    update();
+}
+
+void
+Animation::keyPressEvent(QKeyEvent *e)
+{
+    const float SHIFT = 0.1;
+    switch(e->key()) {
+    case Qt::Key_Right:
+        view_translation[0] += SHIFT;
+        break;
+    case Qt::Key_Left:
+        view_translation[0] -= SHIFT;
+        break;
+    case Qt::Key_Up:
+        view_translation[1] += SHIFT;
+        break;
+    case Qt::Key_Down:
+        view_translation[1] -= SHIFT;
+        break;
+    }
     update();
 }
 
@@ -202,7 +225,8 @@ void Animation::paintGL()
 
     QMatrix4x4 view;
     view.translate(0.0, 0.0, -3.0);
-    view.rotate(rotation);
+    view.translate(view_translation);
+    view.rotate(view_rotation);
     view.scale(view_scale);
 
     Q_ASSERT(universe.size() == simulation_history->universeSize());

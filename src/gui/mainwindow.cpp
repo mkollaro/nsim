@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
     simulation = new Simulation(this, simulation_history);
     animation = new Animation(this, simulation_history);
     setCentralWidget(animation);
+    animation->setFocusPolicy(Qt::StrongFocus);
     animation->setFocus();
 
     ui->playButton->setEnabled(false);

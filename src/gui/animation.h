@@ -30,6 +30,7 @@
 #include <QOpenGLShaderProgram>
 #include <QOpenGLDebugLogger>
 #include <QBasicTimer>
+#include <QVector3D>
 
 #include "physics/universemodel.h"
 #include "simulationhistory.h"
@@ -85,6 +86,7 @@ public slots:
 protected:
     void mousePressEvent(QMouseEvent *e) override;
     void mouseMoveEvent(QMouseEvent *e) override;
+    void keyPressEvent(QKeyEvent *e) override;
     void timerEvent(QTimerEvent *e) override;
 
     void initializeLogging();
@@ -119,8 +121,10 @@ private:
     int speed = 1;
     /// How much should the view matrix be scaled.
     float view_scale = 1.0;
+    QVector3D view_translation;
+    QQuaternion view_rotation;
+
     QVector2D mouse_press_position;
-    QQuaternion rotation;
 
     // models
     Sphere sphere;
