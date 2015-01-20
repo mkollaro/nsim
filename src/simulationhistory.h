@@ -65,19 +65,22 @@ public:
      */
     void clear(unsigned from_index);
 
-    bool empty()
-        { return N == 0; }
+    bool empty() {
+        return N == 0;
+    }
 
     /** How many universe bodies are saved in the history.
      */
-    unsigned universeSize() const
-        { return N; }
+    unsigned universeSize() const {
+        return N;
+    }
 
     /** How many simulation states were saved. There is one time stamp for each
      * state, and a position and velocity vector for each universe body.
      */
-    unsigned historySize() const
-        { return times.size(); }
+    unsigned historySize() const {
+        return times.size();
+    }
 
     /** Get the position vector of the universe body at body_index (ranging
      * from 0 to SimulationHistory::universeSize) at the Nth saved simulation

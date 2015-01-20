@@ -78,7 +78,7 @@ MainWindow::open()
 
         ui->playButton->setEnabled(true);
         statusBar()->showMessage(tr("File loaded, new universe created"),
-                                     STATUS_MSG_TIMEOUT);
+                                 STATUS_MSG_TIMEOUT);
     } catch(const Exception& e) {
         QMessageBox::warning(this, tr("Failed to open project"), e.what());
     }

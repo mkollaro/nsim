@@ -58,8 +58,9 @@ public:
     void loadUniverse(physics::UniverseModel u, parser::ProjectSettings p);
 
     /// Get the position in the SimulationHistory that is currently being drawn.
-    unsigned drawnSimulationHistoryIndex()
-        { return history_index; }
+    unsigned drawnSimulationHistoryIndex() {
+        return history_index;
+    }
 
 
 signals:
@@ -97,8 +98,9 @@ protected:
     void paintGL() override;
 
     // helpers
-    bool hasData()
-        { return !simulation_history->empty(); }
+    bool hasData() {
+        return !simulation_history->empty();
+    }
     float computeUniverseRadius();
     void printGlErrors();
     QString glErrorToString(GLenum error_code);

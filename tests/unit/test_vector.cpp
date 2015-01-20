@@ -133,7 +133,7 @@ TEST_CASE("Check abs (magnitude)", "[vector]")
     REQUIRE(physics::abs(physics::Vector(0,1,0)) == 1);
     REQUIRE(physics::abs(physics::Vector(0,0,1)) == 1);
     REQUIRE(physics::equal(physics::abs(physics::Vector(-3,2,5)),
-                          std::sqrt(38)));
+                           std::sqrt(38)));
 }
 
 TEST_CASE("Dot product", "[vector]")

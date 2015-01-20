@@ -31,11 +31,12 @@
 
 namespace parser
 {
-QString algorithmNames() {
+QString algorithmNames()
+{
     QString result;
     for(unsigned i = 0; i < algorithms::shortTypeName.size(); ++i) {
         result += algorithms::shortTypeName[i]
-                + "\t(" + algorithms::typeName[i] + ")\n";
+                  + "\t(" + algorithms::typeName[i] + ")\n";
     }
     return result;
 }
@@ -48,41 +49,48 @@ ArgumentsParser::ArgumentsParser(const QCoreApplication& app)
     parser.addHelpOption();
     parser.addVersionOption();
     parser.addOptions({
-        {{"f", "file"},
+        {   {"f", "file"},
             QCoreApplication::translate("main",
-                                        "Input XML file with universe model."),
-            QCoreApplication::translate("main", "file")},
-        {{"a", "algorithm"},
+            "Input XML file with universe model."),
+            QCoreApplication::translate("main", "file")
+        },
+        {   {"a", "algorithm"},
             QCoreApplication::translate("main",
-                "Numeric integration algorithm. Default is 'rk4',"
-                " possible options are:\n") + algorithmNames(),
-            QCoreApplication::translate("main", "algorithm")},
-        {{"t", "time"},
+            "Numeric integration algorithm. Default is 'rk4',"
+            " possible options are:\n") + algorithmNames(),
+            QCoreApplication::translate("main", "algorithm")
+        },
+        {   {"t", "time"},
             QCoreApplication::translate("main",
-                "Desired length of the simulation in seconds. Default is ")
-                + QString::number(DEFAULT_TIME) + ".",
-            QCoreApplication::translate("main", "seconds")},
-        {{"s", "step"},
+            "Desired length of the simulation in seconds. Default is ")
+            + QString::number(DEFAULT_TIME) + ".",
+            QCoreApplication::translate("main", "seconds")
+        },
+        {   {"s", "step"},
             QCoreApplication::translate("main",
-                "Time step of the algorithm in seconds (floating-point)."
-                " Default is ") + QString::number(DEFAULT_STEP) + ".",
-            QCoreApplication::translate("main", "seconds")},
-        {{"p", "print-step"},
+            "Time step of the algorithm in seconds (floating-point)."
+            " Default is ") + QString::number(DEFAULT_STEP) + ".",
+            QCoreApplication::translate("main", "seconds")
+        },
+        {   {"p", "print-step"},
             QCoreApplication::translate("main",
-                "Approximate time interval between printing out the simulation"
-                " state, in seconds. Should be larger than the time step."
-                " Default is ") + QString::number(DEFAULT_PRINT_INTERVAL) + ".",
-            QCoreApplication::translate("main", "seconds")},
-        {{"c", "center-to"},
+            "Approximate time interval between printing out the simulation"
+            " state, in seconds. Should be larger than the time step."
+            " Default is ") + QString::number(DEFAULT_PRINT_INTERVAL) + ".",
+            QCoreApplication::translate("main", "seconds")
+        },
+        {   {"c", "center-to"},
             QCoreApplication::translate("main",
-                "Index of the celestial body in the project file to which the"
-                " output should be centered - that body will always have the"
-                " coordinates [0, 0, 0]. Default is 0 (the first body)."),
-            QCoreApplication::translate("main", "index")},
-        {{"b", "center-to-barycenter"},
+            "Index of the celestial body in the project file to which the"
+            " output should be centered - that body will always have the"
+            " coordinates [0, 0, 0]. Default is 0 (the first body)."),
+            QCoreApplication::translate("main", "index")
+        },
+        {   {"b", "center-to-barycenter"},
             QCoreApplication::translate("main",
-                "Center the output so that the barycenter (center of mass) has"
-                " coordinates [0, 0, 0]. Off by default.")}
+            "Center the output so that the barycenter (center of mass) has"
+            " coordinates [0, 0, 0]. Off by default.")
+        }
     });
     parser.process(app);
     file_name = parser.value("file");

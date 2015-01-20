@@ -39,8 +39,9 @@ AdamsBashforth::reset()
 }
 
 void
-AdamsBashforth::computeStepImplementation(physics::UniverseModel *universe,
-                                          physics::DOUBLE time_step)
+AdamsBashforth::computeStepImplementation(
+    physics::UniverseModel *universe,
+    physics::DOUBLE time_step)
 {
     if(history.size() < order-1) {
         RungeKutta rk4(4, true);

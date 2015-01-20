@@ -34,11 +34,10 @@ Leapfrog::computeStepImplementation(physics::UniverseModel *universe,
 {
     for(auto& body : *universe) {
         body.position += time_step   * body.velocity
-                       + time_step/2 * body.acceleration;
+                         + time_step/2 * body.acceleration;
         body.velocity += time_step * (body.acceleration
                                       + computeAcceleration(universe,
-                                                            body,
-                                                            body.position))/2;
+                                              body, body.position))/2;
     }
 }
 }  // namespace

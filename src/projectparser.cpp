@@ -31,12 +31,14 @@
 namespace parser
 {
 physics::DOUBLE
-convertUnits(physics::DOUBLE value, LengthUnit from, LengthUnit to) {
+convertUnits(physics::DOUBLE value, LengthUnit from, LengthUnit to)
+{
     return convertUnits(physics::Vector(value, 0, 0), from, to)[0];
 }
 
 physics::Vector
-convertUnits(physics::Vector value, LengthUnit from, LengthUnit to) {
+convertUnits(physics::Vector value, LengthUnit from, LengthUnit to)
+{
     // convert to meters first
     if(from == LengthUnit::KM)
         value *= 1000;
@@ -53,12 +55,14 @@ convertUnits(physics::Vector value, LengthUnit from, LengthUnit to) {
 }
 
 physics::DOUBLE
-convertUnits(physics::DOUBLE value, TimeUnit from, TimeUnit to) {
+convertUnits(physics::DOUBLE value, TimeUnit from, TimeUnit to)
+{
     return convertUnits(physics::Vector(value, 0, 0), from, to)[0];
 }
 
 physics::Vector
-convertUnits(physics::Vector value, TimeUnit from, TimeUnit to) {
+convertUnits(physics::Vector value, TimeUnit from, TimeUnit to)
+{
     // convert to seconds first
     if(from == TimeUnit::DAY)
         value *= 3600;

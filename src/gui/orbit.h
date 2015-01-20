@@ -89,14 +89,17 @@ private:
      */
     unsigned history_index = 0;
 
-    bool full()
-        { return length == MAX_BUFFER_LENGTH; }
+    bool full() {
+        return length == MAX_BUFFER_LENGTH;
+    }
 
-    bool empty()
-        { return length == 0; }
+    bool empty() {
+        return length == 0;
+    }
 
-    unsigned available()
-        { return MAX_BUFFER_LENGTH - length; }
+    unsigned available() {
+        return MAX_BUFFER_LENGTH - length;
+    }
 };
 
 #endif  // __ORBIT_H__

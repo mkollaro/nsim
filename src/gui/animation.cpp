@@ -123,7 +123,7 @@ void Animation::mouseMoveEvent(QMouseEvent *e)
     QVector3D rotationAxis = QVector3D(diff.y(), diff.x(), 0.0).normalized();
     // calculate new rotation axis as weighted sum
     view_rotation *= QQuaternion::fromAxisAndAngle(rotationAxis,
-                                                   diff.length()/100);
+                     diff.length()/100);
     update();
 }
 
@@ -281,13 +281,21 @@ void Animation::printGlErrors()
 QString Animation::glErrorToString(GLenum error_code)
 {
     switch(error_code) {
-        case GL_NO_ERROR: return "No error";
-        case GL_INVALID_ENUM: return "Invalid enumerant";
-        case GL_INVALID_VALUE: return "Invalid value";
-        case GL_INVALID_OPERATION: return "Invalid operation";
-        case GL_STACK_OVERFLOW: return "Stack overflow";
-        case GL_STACK_UNDERFLOW: return "Stack underflow";
-        case GL_OUT_OF_MEMORY: return "Out of memory";
-        default: return "Unknown error";
+    case GL_NO_ERROR:
+        return "No error";
+    case GL_INVALID_ENUM:
+        return "Invalid enumerant";
+    case GL_INVALID_VALUE:
+        return "Invalid value";
+    case GL_INVALID_OPERATION:
+        return "Invalid operation";
+    case GL_STACK_OVERFLOW:
+        return "Stack overflow";
+    case GL_STACK_UNDERFLOW:
+        return "Stack underflow";
+    case GL_OUT_OF_MEMORY:
+        return "Out of memory";
+    default:
+        return "Unknown error";
     }
 }

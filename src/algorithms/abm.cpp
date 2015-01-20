@@ -40,8 +40,8 @@ AdamsBashforthMoulton::reset()
 
 void
 AdamsBashforthMoulton::computeStepImplementation(
-                                          physics::UniverseModel *universe,
-                                          physics::DOUBLE time_step)
+    physics::UniverseModel *universe,
+    physics::DOUBLE time_step)
 {
     if(history.size() < order-1) {
         RungeKutta rk4(4, true);
