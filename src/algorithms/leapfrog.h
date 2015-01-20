@@ -35,7 +35,7 @@ namespace algorithms
 class Leapfrog : public Base
 {
 public:
-    Leapfrog(unsigned order = 0)
+    explicit Leapfrog(unsigned order = 0)
         : Base(order) {}
 
     Type getType() {

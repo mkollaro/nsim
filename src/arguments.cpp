@@ -31,7 +31,6 @@
 
 namespace parser
 {
-
 QString algorithmNames() {
     QString result;
     for(unsigned i = 0; i < algorithms::shortTypeName.size(); ++i) {
@@ -41,7 +40,7 @@ QString algorithmNames() {
     return result;
 }
 
-ArgumentsParser::ArgumentsParser(QCoreApplication& app)
+ArgumentsParser::ArgumentsParser(const QCoreApplication& app)
 {
     QCommandLineParser parser;
     parser.setApplicationDescription("Compute paths of celestial bodies and"

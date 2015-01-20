@@ -26,6 +26,8 @@
 
 #ifndef __ALGORITHM_TYPES_H__
 #define __ALGORITHM_TYPES_H__
+
+#include <vector>
 #include <QString>
 
 namespace algorithms

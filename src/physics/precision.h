@@ -44,6 +44,6 @@ inline bool equal(DOUBLE first, DOUBLE second)
 {
     return !(std::fabs(first - second) > EPSILON);
 }
-} // namespace
+}  // namespace
 
 #endif  // __PRECISION_H__

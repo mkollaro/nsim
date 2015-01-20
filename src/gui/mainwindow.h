@@ -27,6 +27,7 @@
 
 #include <memory>
 #include <QtWidgets/QMainWindow>
+
 #include "ui_mainwindow.h"
 #include "simulationhistory.h"
 

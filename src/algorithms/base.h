@@ -81,7 +81,7 @@ public:
      *      in the Adams methods, since they are available in various
      *      orders.
      */
-    Base(unsigned order = 0) : order(order) {}
+    explicit Base(unsigned order = 0) : order(order) {}
 
     virtual ~Base() {}
 

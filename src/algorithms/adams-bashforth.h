@@ -39,7 +39,7 @@ namespace algorithms
 class AdamsBashforth : public Base
 {
 public:
-    AdamsBashforth(unsigned order)
+    explicit AdamsBashforth(unsigned order)
         : Base(order), constants(order) {}
 
     void reset();

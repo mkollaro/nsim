@@ -37,7 +37,7 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
-void printComment(physics::UniverseModel& universe);
+void printComment(const physics::UniverseModel& universe);
 void printStep(const physics::DOUBLE time,
                const physics::UniverseModel& universe,
                const parser::ProjectSettings& settings,
@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
     return EXIT_SUCCESS;
 }
 
-void printComment(physics::UniverseModel& universe)
+void printComment(const physics::UniverseModel& universe)
 {
     cout << "# time";
     for(const auto& body : universe) {

@@ -41,7 +41,7 @@ static const double DEFAULT_STEP = 10;
 static const unsigned DEFAULT_PRINT_INTERVAL = 200;
 
 struct ArgumentsParser {
-    ArgumentsParser(QCoreApplication& app);
+    explicit ArgumentsParser(const QCoreApplication& app);
 
     /// Required input file name set with `-f` with universe definition
     /// at `t = 0`.

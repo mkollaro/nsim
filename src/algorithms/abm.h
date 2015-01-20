@@ -39,7 +39,7 @@ namespace algorithms
 class AdamsBashforthMoulton : public Base
 {
 public:
-    AdamsBashforthMoulton(unsigned order)
+    explicit AdamsBashforthMoulton(unsigned order)
         : Base(order), constants(order) {}
 
     void reset();

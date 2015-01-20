@@ -37,7 +37,7 @@ namespace algorithms
 class Euler : public Base
 {
 public:
-    Euler(unsigned order = 0)
+    explicit Euler(unsigned order = 0)
         : Base(order) {}
 
     Type getType() {

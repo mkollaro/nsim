@@ -25,6 +25,7 @@
 
 
 #include <memory>
+#include <vector>
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
 #include <QOpenGLShaderProgram>

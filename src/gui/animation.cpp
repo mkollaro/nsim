@@ -151,7 +151,7 @@ Animation::keyPressEvent(QKeyEvent *e)
 void Animation::timerEvent(QTimerEvent *)
 {
     if (!hasData()) return;
-    Q_ASSERT(speed >= 1); /// @todo slower?
+    Q_ASSERT(speed >= 1);  // @todo slower?
     history_index += speed;
     if (history_index >= simulation_history->historySize()) {
         history_index = simulation_history->historySize() - 1;

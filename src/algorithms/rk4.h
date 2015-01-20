@@ -36,7 +36,7 @@ namespace algorithms
 class RungeKutta : public Base
 {
 public:
-    RungeKutta(unsigned order, bool save_step = false)
+    explicit RungeKutta(unsigned order, bool save_step = false)
         : Base(order), save_step_(save_step) {}
 
     Type getType();
