@@ -2,7 +2,7 @@ language: cpp
 compiler:
   - gcc
 before_install:
-    - sudo apt-get update -qq
+  - sudo apt-get update -qq
   - sudo apt-get install qtbase5-dev qt5-default qttools5-dev-tools
 script: 
   - qmake --version
