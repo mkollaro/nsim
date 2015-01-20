@@ -51,16 +51,16 @@ int main(int argc, char *argv[])
 
     try {
         parser::ArgumentsParser arguments(app);
-        parser::ProjectParser project(arguments.fileName);
+        parser::ProjectParser project(arguments.file_name);
         auto settings = project.getSettings();
         auto universe = project.getUniverseModel();
         physics::SimulationTime time;
-        time.setTimeStep(arguments.timeStep);
+        time.setTimeStep(arguments.time_step);
 
         auto algorithm = algorithms::factory(arguments.algorithm);
-        unsigned saveStateStep = arguments.printInterval / arguments.timeStep;
-        if(saveStateStep < 1) saveStateStep = 1;
-        const unsigned steps = arguments.simulationTime / arguments.timeStep;
+        unsigned save_state_step = arguments.print_interval/arguments.time_step;
+        if(save_state_step < 1) save_state_step = 1;
+        const unsigned steps = arguments.simulation_time/arguments.time_step;
 
         physics::DOUBLE TOTAL_MASS = 0;
         for(const auto& body : universe) TOTAL_MASS += body.mass;
@@ -69,10 +69,10 @@ int main(int argc, char *argv[])
         // main computation
         for(unsigned i = 0; i <= steps; i++) {
             // print simulation state
-            if(i % saveStateStep == 0) {
-                if(!arguments.centerToBarycenter) {
+            if(i % save_state_step == 0) {
+                if(!arguments.center_to_barycenter) {
                     printStep(time.time(), universe, settings,
-                              universe[arguments.centerBodyIndex].position);
+                              universe[arguments.center_body_index].position);
                 } else {
                     physics::Vector sum;
                     for(const auto& body : universe) {
@@ -110,12 +110,12 @@ void printStep(const physics::DOUBLE time,
                const parser::ProjectSettings& settings,
                const physics::Vector& center)
 {
-    cout << convertUnits(time, parser::TimeUnit::SEC, settings.timeUnit);
+    cout << convertUnits(time, parser::TimeUnit::SEC, settings.time_unit);
     for(const auto& body : universe) {
         cout << std::setprecision(15) << " "
              << parser::convertUnits(body.position - center,
                                      parser::LengthUnit::METER,
-                                     settings.lengthUnit);
+                                     settings.length_unit);
     }
     cout << endl;
 }

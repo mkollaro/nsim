@@ -37,7 +37,7 @@ const unsigned DEFAULT_STEP = 60*60;
 class SimulationTime
 {
     physics::DOUBLE t = 0;
-    physics::DOUBLE initTime = 0;
+    physics::DOUBLE init_time = 0;
     physics::DOUBLE step = DEFAULT_STEP;
     unsigned counter = 0;
 
@@ -46,7 +46,7 @@ public:
 
     /// Time from start of simulation in seconds.
     physics::DOUBLE time() const {
-        return initTime + t;
+        return init_time + t;
     }
 
     /// Increases time by the time step.
@@ -59,7 +59,7 @@ public:
     /// Sets the simulation time (in seconds) - use when loading Simulation
     /// position from Buffer.
     void setTime(physics::DOUBLE time) {
-        initTime = time;
+        init_time = time;
         t = 0;
         counter = 0;
     }

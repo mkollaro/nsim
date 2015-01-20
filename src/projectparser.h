@@ -64,34 +64,34 @@ physics::Vector convertUnits(physics::Vector value,
  */
 struct ProjectSettings {
     /// Start time of the simulation. Will be invalid if not set.
-    QDateTime startDateTime;
+    QDateTime start_date_time;
 
     /// Which units to use when getting input or printing output (internally,
     /// kilograms are always used)
-    MassUnit massUnit = MassUnit::KG;
+    MassUnit mass_unit = MassUnit::KG;
 
     /// Which units to use when getting input or printing output (internally,
     /// meters are always used)
-    LengthUnit lengthUnit = LengthUnit::METER;
+    LengthUnit length_unit = LengthUnit::METER;
 
     /// Which units to use when getting input or printing output (internally,
     /// seconds are always used)
-    TimeUnit timeUnit = TimeUnit::SEC;
+    TimeUnit time_unit = TimeUnit::SEC;
 
     /// Index of a body in UniverseModel to which the animation will be
     /// centered. Default is 0 (the first body in the project file).
-    unsigned visualCenter = 0;
+    unsigned visual_center = 0;
 
     /// Default color of all the celestial bodies.
-    QColor bodyColor = Qt::gray;
+    QColor body_color = Qt::gray;
 
     /// Default color of all the trajectories. Will be Qt::green if not set.
-    QColor orbitColor = Qt::red;
+    QColor orbit_color = Qt::red;
 
     /// Default vizual multiplier of size. If equal to 1, the apparent sizes
     /// of celestial bodies will be normal, if equal to 2, they will be
     /// shown 2x larger. Used to make very small bodies visible.
-    int visibleSizeMultiplier = 1;
+    int visible_size_multiplier = 1;
 };
 
 /**

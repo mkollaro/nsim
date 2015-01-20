@@ -51,7 +51,7 @@ struct Body {
      * of the celestial body will be normal, if equal to 2, it will be
      * shown 2x larger. Used to make a very small body visible.
      */
-    int visibleSizeMultiplier = 1;
+    int visible_size_multiplier = 1;
 };
 
 /**

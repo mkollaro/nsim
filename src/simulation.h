@@ -81,7 +81,7 @@ private slots:
     void compute();
 
 private:
-    unsigned stepsInTick;
+    unsigned steps_in_tick;
     std::shared_ptr<SimulationHistory> simulation_history;
     physics::SimulationTime time;
     physics::UniverseModel universe;
@@ -92,7 +92,7 @@ private:
 
     /// How many steps to take so that approximatly SAVE_STATE_INTERVAL
     /// seconds pass of the the simulation.
-    unsigned saveStateStep;
+    unsigned save_state_step;
 
     /// Counter of simulation algorithm steps.
     unsigned counter;

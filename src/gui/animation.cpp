@@ -230,19 +230,19 @@ void Animation::paintGL()
     view.scale(view_scale);
 
     Q_ASSERT(universe.size() == simulation_history->universeSize());
-    program.setUniformValue("color", settings.bodyColor);
+    program.setUniformValue("color", settings.body_color);
     program.setUniformValue("use_lights", true);
     for(unsigned i = 0; i < universe.size(); i++) {
         const auto& body = universe[i];
         QMatrix4x4 model;
         model.translate(simulation_history->bodyPosition(i, history_index));
         model.scale(body.radius
-                    * body.visibleSizeMultiplier
-                    * settings.visibleSizeMultiplier);
+                    * body.visible_size_multiplier
+                    * settings.visible_size_multiplier);
         program.setUniformValue("mvp_matrix", projection * view * model);
         sphere.draw(&program);
     }
-    program.setUniformValue("color", settings.orbitColor);
+    program.setUniformValue("color", settings.orbit_color);
     program.setUniformValue("use_lights", false);
     for(unsigned i = 0; i < universe.size(); i++) {
         QMatrix4x4 model;

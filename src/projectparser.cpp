@@ -130,13 +130,13 @@ ProjectParser::parse(QFile *file)
     // always use meters, seconds and kilogram in internal representation
     for(auto& body : universe) {
         body.position = convertUnits(body.position,
-                                     settings.lengthUnit, LengthUnit::METER);
+                                     settings.length_unit, LengthUnit::METER);
         body.velocity = convertUnits(body.velocity,
-                                     settings.lengthUnit, LengthUnit::METER);
+                                     settings.length_unit, LengthUnit::METER);
         body.velocity = convertUnits(body.velocity,
-                                     settings.timeUnit, TimeUnit::SEC);
+                                     settings.time_unit, TimeUnit::SEC);
         body.radius = convertUnits(body.radius,
-                                   settings.lengthUnit, LengthUnit::METER);
+                                   settings.length_unit, LengthUnit::METER);
     }
 }
 
@@ -155,11 +155,11 @@ ProjectParser::parseUnits(const QDomElement& element)
             text = e.text().trimmed();
             qDebug() << "parser: length unit is" << text;
             if(text == "m" || text == "meter") {
-                settings.lengthUnit = LengthUnit::METER;
+                settings.length_unit = LengthUnit::METER;
             } else if(text == "km") {
-                settings.lengthUnit = LengthUnit::KM;
+                settings.length_unit = LengthUnit::KM;
             } else if(text == "AU") {
-                settings.lengthUnit = LengthUnit::AU;
+                settings.length_unit = LengthUnit::AU;
             } else {
                 throw Exception("Unknown length unit " + text);
             }
@@ -167,9 +167,9 @@ ProjectParser::parseUnits(const QDomElement& element)
             text = e.text().trimmed();
             qDebug() << "parser: time unit is" << text;
             if(text == "s" || text == "sec" || text == "seconds") {
-                settings.timeUnit = TimeUnit::SEC;
+                settings.time_unit = TimeUnit::SEC;
             } else if(text == "day" || text == "days") {
-                settings.timeUnit = TimeUnit::DAY;
+                settings.time_unit = TimeUnit::DAY;
             } else {
                 throw Exception("Unknown time unit " + text);
             }
@@ -195,7 +195,7 @@ ProjectParser::parseSettings(const QDomElement& element)
         } else if(tag == "trajectory-color") {
             throw Exception("Unimplemented tag 'trajectory-color'");
         } else if(tag == "visible-size-multiplier") {
-            settings.visibleSizeMultiplier = e.text().toInt();
+            settings.visible_size_multiplier = e.text().toInt();
         } else if(tag == "visual-center") {
             throw Exception("Unimplemented tag 'visual-center'");
         } else {
@@ -218,7 +218,7 @@ ProjectParser::parseUniverse(const QDomElement& element)
         }
         physics::Body body;
         body.name = e.attribute("name", "body");
-        body.visibleSizeMultiplier = 1;
+        body.visible_size_multiplier = 1;
         body.acceleration = physics::Vector(0, 0, 0);
         QDomNode param = e.firstChild();
         QString tag;
@@ -229,7 +229,7 @@ ProjectParser::parseUniverse(const QDomElement& element)
             if(tag == "radius") {
                 body.radius = e.text().toDouble();
             } else if(tag == "visible-size-multiplier") {
-                body.visibleSizeMultiplier = e.text().toInt();
+                body.visible_size_multiplier = e.text().toInt();
             } else if(tag == "mass") {
                 body.mass = e.text().toDouble();
             } else if(tag == "position") {

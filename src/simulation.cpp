@@ -38,12 +38,12 @@ Simulation::Simulation(QObject *parent,
 {
     assert(simulation_history != nullptr);
 
-    saveStateStep = SAVE_STATE_INTERVAL / time.timeStep();
-    if(saveStateStep < 1) saveStateStep = 1;
+    save_state_step = SAVE_STATE_INTERVAL / time.timeStep();
+    if(save_state_step < 1) save_state_step = 1;
 
     algorithm = algorithms::factory(algorithms::DEFAULT_TYPE);
 
-    stepsInTick = DEFAULT_COMPUTE_STEPS_IN_TICK;
+    steps_in_tick = DEFAULT_COMPUTE_STEPS_IN_TICK;
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(compute()));
 }
@@ -52,15 +52,15 @@ void
 Simulation::changeComputationIntensity(AnimationState state)
 {
     if(state == PLAYING) {
-        stepsInTick = DEFAULT_COMPUTE_STEPS_IN_TICK;
+        steps_in_tick = DEFAULT_COMPUTE_STEPS_IN_TICK;
         timer->start(0);
         qDebug() << "Simulation running at normal speed";
     } else if(state == PAUSED) {
-        stepsInTick = DEFAULT_COMPUTE_STEPS_IN_TICK/2;
+        steps_in_tick = DEFAULT_COMPUTE_STEPS_IN_TICK/2;
         timer->start(100);
         qDebug() << "Simulation running slower";
     } else if(state == BUFFERING) {
-        stepsInTick = DEFAULT_COMPUTE_STEPS_IN_TICK*2;
+        steps_in_tick = DEFAULT_COMPUTE_STEPS_IN_TICK*2;
         timer->start(0);
         qDebug() << "Simulation running at full speed, buffering";
     }
@@ -75,10 +75,10 @@ Simulation::compute()
         time.updateTime();
 
         counter++;
-        if(counter % saveStateStep == 0) {
+        if(counter % save_state_step == 0) {
             simulation_history->save(universe, time);
         }
-        if(counter % stepsInTick == 0)
+        if(counter % steps_in_tick == 0)
             return;
     }
 }
@@ -123,8 +123,8 @@ Simulation::setAlgorithm(algorithms::Type type,
     }
     if(!physics::equal(timeStep, time.timeStep())) {
         time.setTimeStep(timeStep);
-        saveStateStep = SAVE_STATE_INTERVAL / time.timeStep();
-        if(saveStateStep == 0) saveStateStep = 1;
+        save_state_step = SAVE_STATE_INTERVAL / time.timeStep();
+        if(save_state_step == 0) save_state_step = 1;
         load_history = true;
     }
     if(load_history && simulation_history->historySize() > 0) {

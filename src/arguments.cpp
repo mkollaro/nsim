@@ -86,8 +86,8 @@ ArgumentsParser::ArgumentsParser(QCoreApplication& app)
                 " coordinates [0, 0, 0]. Off by default.")}
     });
     parser.process(app);
-    fileName = parser.value("file");
-    if(fileName.isEmpty())
+    file_name = parser.value("file");
+    if(file_name.isEmpty())
         throw Exception("No input file name specified.");
 
     QString algorithmStr = parser.value("algorithm");
@@ -105,31 +105,31 @@ ArgumentsParser::ArgumentsParser(QCoreApplication& app)
     }
 
     if(parser.isSet("time"))
-        simulationTime = parser.value("time").toDouble();
+        simulation_time = parser.value("time").toDouble();
     if(parser.isSet("step"))
-        timeStep = parser.value("step").toDouble();
+        time_step = parser.value("step").toDouble();
     if(parser.isSet("print-step"))
-        printInterval = parser.value("print-step").toDouble();
+        print_interval = parser.value("print-step").toDouble();
 
-    if(simulationTime < timeStep)
+    if(simulation_time < time_step)
         throw Exception("The simulation time has to be greater then the"
                         " time step.");
-    if(timeStep > printInterval)
+    if(time_step > print_interval)
         throw Exception("The time step should be smaller or equal to the"
                         " print interval.");
 
     if(parser.isSet("center-to"))
-        centerBodyIndex = parser.value("center-to").toUInt();
-    centerToBarycenter = parser.isSet("center-to-barycenter");
+        center_body_index = parser.value("center-to").toUInt();
+    center_to_barycenter = parser.isSet("center-to-barycenter");
 
-    if(centerToBarycenter && centerBodyIndex > 0)
+    if(center_to_barycenter && center_body_index > 0)
         throw Exception("The coordinates can be eighter centered to a"
                         " body or to the barycenter, not both.");
 
-    qDebug() << "file: " << fileName;
-    qDebug() << "time: " << simulationTime;
-    qDebug() << "time step: " << timeStep;
-    qDebug() << "print interval: " << printInterval;
+    qDebug() << "file: " << file_name;
+    qDebug() << "time: " << simulation_time;
+    qDebug() << "time step: " << time_step;
+    qDebug() << "print interval: " << print_interval;
     qDebug() << "algorithm: " << algorithms::typeName[algorithm];
 }
 }  // namespace
