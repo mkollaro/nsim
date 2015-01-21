@@ -95,14 +95,21 @@
          <second>59</second>
         </time>
        </property>
+       <property name="minimumTime">
+        <time>
+         <hour>0</hour>
+         <minute>0</minute>
+         <second>1</second>
+        </time>
+       </property>
        <property name="currentSection">
-        <enum>QDateTimeEdit::SecondSection</enum>
+        <enum>QDateTimeEdit::HourSection</enum>
        </property>
        <property name="displayFormat">
-        <string extracomment="[h:m:s:ms]">h'h,' mm'min,' ss.zzz's'</string>
+        <string extracomment="[h:m:s]">h'h,' mm'min,' ss's'</string>
        </property>
        <property name="currentSectionIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <property name="timeSpec">
         <enum>Qt::LocalTime</enum>
