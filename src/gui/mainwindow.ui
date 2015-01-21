@@ -30,7 +30,7 @@
      <x>0</x>
      <y>0</y>
      <width>835</width>
-     <height>23</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -41,30 +41,7 @@
     <addaction name="separator"/>
     <addaction name="actionQuit"/>
    </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>&amp;Help</string>
-    </property>
-    <addaction name="actionAbout"/>
-    <addaction name="actionHelp"/>
-   </widget>
-   <widget class="QMenu" name="menuSimulation">
-    <property name="title">
-     <string>&amp;Simulation</string>
-    </property>
-    <addaction name="actionCompute"/>
-   </widget>
-   <widget class="QMenu" name="menuView">
-    <property name="title">
-     <string>&amp;View</string>
-    </property>
-    <addaction name="actionOrbits"/>
-    <addaction name="actionLabels"/>
-   </widget>
    <addaction name="menu_File"/>
-   <addaction name="menuView"/>
-   <addaction name="menuSimulation"/>
-   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QDockWidget" name="algorithmDock">
@@ -111,13 +88,6 @@
        <property name="inputMethodHints">
         <set>Qt::ImhHiddenText|Qt::ImhPreferNumbers</set>
        </property>
-       <property name="time">
-        <time>
-         <hour>1</hour>
-         <minute>0</minute>
-         <second>0</second>
-        </time>
-       </property>
        <property name="maximumTime">
         <time>
          <hour>23</hour>
@@ -136,6 +106,13 @@
        </property>
        <property name="timeSpec">
         <enum>Qt::LocalTime</enum>
+       </property>
+       <property name="time">
+        <time>
+         <hour>1</hour>
+         <minute>0</minute>
+         <second>0</second>
+        </time>
        </property>
       </widget>
      </item>
@@ -291,130 +268,14 @@
     </layout>
    </widget>
   </widget>
-  <action name="actionOpen_data_file">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/graphics/graphics/document-open.png</normaloff>:/graphics/graphics/document-open.png</iconset>
-   </property>
-   <property name="text">
-    <string>Open data file</string>
-   </property>
-   <property name="iconVisibleInMenu">
-    <bool>true</bool>
-   </property>
-  </action>
   <action name="actionOpenProject">
    <property name="text">
     <string>&amp;Open project</string>
    </property>
   </action>
-  <action name="actionNew_project">
-   <property name="text">
-    <string>New project</string>
-   </property>
-  </action>
-  <action name="actionSave">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/graphics/graphics/document-save.png</normaloff>:/graphics/graphics/document-save.png</iconset>
-   </property>
-   <property name="text">
-    <string>Save project</string>
-   </property>
-  </action>
-  <action name="actionSave_as">
-   <property name="text">
-    <string>Save project as ...</string>
-   </property>
-  </action>
   <action name="actionQuit">
    <property name="text">
     <string>Quit</string>
-   </property>
-  </action>
-  <action name="actionProject_settings">
-   <property name="text">
-    <string>Application settings</string>
-   </property>
-  </action>
-  <action name="actionAbout">
-   <property name="text">
-    <string>About</string>
-   </property>
-  </action>
-  <action name="actionHelp">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/graphics/graphics/help.png</normaloff>:/graphics/graphics/help.png</iconset>
-   </property>
-   <property name="text">
-    <string>Help</string>
-   </property>
-  </action>
-  <action name="actionCreate_table">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/graphics/graphics/table.png</normaloff>:/graphics/graphics/table.png</iconset>
-   </property>
-   <property name="text">
-    <string>Create table</string>
-   </property>
-  </action>
-  <action name="actionCreate_graph">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/graphics/graphics/graph.png</normaloff>:/graphics/graphics/graph.png</iconset>
-   </property>
-   <property name="text">
-    <string>Create graph</string>
-   </property>
-  </action>
-  <action name="actionAdd_data">
-   <property name="text">
-    <string>Add data</string>
-   </property>
-  </action>
-  <action name="actionEdit_filters">
-   <property name="text">
-    <string>Edit filters</string>
-   </property>
-  </action>
-  <action name="actionEdit_style">
-   <property name="text">
-    <string>Edit style</string>
-   </property>
-  </action>
-  <action name="actionOrbits">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>O&amp;rbits</string>
-   </property>
-  </action>
-  <action name="actionLabels">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Labels</string>
-   </property>
-  </action>
-  <action name="actionCompute">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Compute in &amp;background</string>
    </property>
   </action>
  </widget>
