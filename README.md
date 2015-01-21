@@ -12,6 +12,8 @@ Gravitational interactions are computed with classical Newtonian mechanics and
 the bodies are modelled as simple point masses (their volume and shape are not
 taken into consideration).
 
+![Alpha version of the GUI](doc/img/screenshot.png "Alpha version of the GUI")
+
 ## Installation
 
 You will need:
