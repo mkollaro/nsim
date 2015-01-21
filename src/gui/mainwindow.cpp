@@ -109,6 +109,8 @@ MainWindow::connectActions()
     // menu
     connect(ui->actionOpenProject, SIGNAL(triggered()),
             this, SLOT(open()));
+    connect(ui->actionQuit, SIGNAL(triggered()),
+            this, SLOT(close()));
 
     // algorithm changes
     connect(ui->setAlgorithmButton, SIGNAL(clicked()),
