@@ -12,7 +12,21 @@ Gravitational interactions are computed with classical Newtonian mechanics and
 the bodies are modelled as simple point masses (their volume and shape are not
 taken into consideration).
 
-![Alpha version of the GUI](doc/img/screenshot.png "Alpha version of the GUI")
+## Examples
+
+### CLI usage
+
+    $ bin/nsim-cmd -f examples/earth-moon-sun.xml
+    # time Sun_x Sun_y Sun_z Earth_x Earth_y Earth_z Moon_x Moon_y Moon_z
+    0 0 0 0 128079368.922767 -80628651.5813115 -3492.12286324799 127792152.883098 -80865704.0944675 9563.00363019109
+    200 0 0 0 128082444.421441 -80623629.9416063 -3492.07035570603 127795365.928979 -80860840.702465 9580.24818598272
+    400 0 0 0 128085519.722891 -80618608.179338 -3492.01779332642 127798578.867124 -80855977.1132846 9597.48870185548
+    ...
+    
+### GUI screenshot (alpha version)
+
+![Alpha version of the GUI showing the project 'examples/earth-moon-satellite.xml'](doc/img/screenshot.png)
+
 
 ## Installation
 
