@@ -85,8 +85,8 @@ struct ProjectSettings {
     /// Default color of all the celestial bodies.
     QColor body_color = Qt::gray;
 
-    /// Default color of all the trajectories. Will be Qt::green if not set.
-    QColor orbit_color = Qt::red;
+    /// Default color of all the trajectories.
+    QColor orbit_color = {255, 0, 0, 100};  // transparent red
 
     /// Default vizual multiplier of size. If equal to 1, the apparent sizes
     /// of celestial bodies will be normal, if equal to 2, they will be
