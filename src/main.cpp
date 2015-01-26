@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
     format.setProfile(QSurfaceFormat::CoreProfile);
     format.setOption(QSurfaceFormat::DebugContext);
     format.setSwapBehavior(QSurfaceFormat::DoubleBuffer);
+    format.setSamples(4);
     QSurfaceFormat::setDefaultFormat(format);
 
     MainWindow w;

@@ -206,6 +206,7 @@ void Animation::initializeGL()
     glClearColor(0, 0, 0, 1);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
+    glEnable(GL_MULTISAMPLE);
 
     printGlErrors();
 }
