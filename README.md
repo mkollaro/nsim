@@ -22,7 +22,10 @@ taken into consideration).
     200 0 0 0 128082444.421441 -80623629.9416063 -3492.07035570603 127795365.928979 -80860840.702465 9580.24818598272
     400 0 0 0 128085519.722891 -80618608.179338 -3492.01779332642 127798578.867124 -80855977.1132846 9597.48870185548
     ...
-    
+### Gnuplot visualizations
+![The slingshot maneuver by the Voyager](doc/img/slingshot.png)
+![The outer Solar system](doc/img/solarsystem-outer.png)
+
 ### GUI screenshot (alpha version)
 
 ![Alpha version of the GUI showing the project 'examples/earth-moon-satellite.xml'](doc/img/screenshot.png)
